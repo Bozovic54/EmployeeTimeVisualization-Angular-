@@ -1,6 +1,10 @@
 
 <main class="main">
-  <app-employee-table></app-employee-table>
+  <div class="table">
+      <app-employee-table (employeesUpdated)="updateEmployees($event)"></app-employee-table>
+  </div>
+  <div class="pieChart">
+    <app-employee-pie-chart [employees]="employees"></app-employee-pie-chart>
+  </div>
 </main>
 
-<router-outlet />

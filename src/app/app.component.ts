@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Employee } from './models/employee.model'; // Promeni putanju prema mestu gde se model nalazi
+
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'AngularProject';
+  employees: Employee[] = [];
+
+  updateEmployees(employees: Employee[]): void {
+    this.employees = employees;
+  }
 }

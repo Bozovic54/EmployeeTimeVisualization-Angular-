@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { EmployeeService } from '../employee.service';
 import { Employee } from '../models/employee.model'; 
 
@@ -10,7 +10,8 @@ import { Employee } from '../models/employee.model';
 export class EmployeeTableComponent implements OnInit {
 
   employees: Employee[] = [];
-
+  @Output() employeesUpdated = new EventEmitter<Employee[]>(); // Dodaj ovu liniju
+  
   constructor(private employeeService: EmployeeService) {}
 
   ngOnInit(): void {
@@ -28,6 +29,7 @@ export class EmployeeTableComponent implements OnInit {
         });
   
       this.employees.sort((a, b) => (b.TotalWorkedHours || 0) - (a.TotalWorkedHours || 0));
+      this.employeesUpdated.emit(this.employees);
     });
   }
 
