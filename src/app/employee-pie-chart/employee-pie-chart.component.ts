@@ -9,13 +9,13 @@ Chart.register(...registerables)
   templateUrl: './employee-pie-chart.component.html',
   styleUrl: './employee-pie-chart.component.css'
 })
+
 export class EmployeePieChartComponent implements  AfterViewInit {
   @Input() employees: any[] = [];
   totalWorkedHours: number = 0;
   chart: any;
 
   ngAfterViewInit() {
-    // Pozivanje metode za kreiranje grafikona u AfterViewInit kako bi se osiguralo da je DOM potpuno učitan
     if (this.employees && this.employees.length > 0) {
       this.createPieChart();
     } else {
@@ -24,6 +24,7 @@ export class EmployeePieChartComponent implements  AfterViewInit {
   }
 
   createPieChart(): void{
+
     console.log('Employee data:', this.employees); 
     this.totalWorkedHours = this.employees.reduce((total, employee) => total + employee.TotalWorkedHours, 0);
 
@@ -37,14 +38,14 @@ export class EmployeePieChartComponent implements  AfterViewInit {
     }
 
     if (this.chart) {
-      this.chart.destroy(); // Uništava stari grafikon ako već postoji
+      this.chart.destroy(); 
     }
     this.chart = new Chart(ctx, {
       type: 'pie',
       data: {
-        labels: employeeNames, // Imena zaposlenih
+        labels: employeeNames, 
         datasets: [{
-          data: employeeHours, // Vreme rada zaposlenih
+          data: employeeHours, 
           backgroundColor: [
             '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40'
           ],
@@ -58,9 +59,9 @@ export class EmployeePieChartComponent implements  AfterViewInit {
         plugins: {
           tooltip: {
             callbacks: {
-              label: (tooltipItem: TooltipItem<'pie'>) => { // Koristi strelicu za zadržavanje this
+              label: (tooltipItem: TooltipItem<'pie'>) => { 
                 const employeeName = tooltipItem.label;
-                const workedHours = tooltipItem.raw as number; // Kastuj na number
+                const workedHours = tooltipItem.raw as number; 
                 const percentage = ((workedHours / this.totalWorkedHours) * 100).toFixed(2);
                 return `${employeeName}: ${workedHours} hours (${percentage}%)`;
               }

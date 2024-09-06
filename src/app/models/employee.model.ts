@@ -1,4 +1,3 @@
-// src/app/models/employee.model.ts
 
 export interface Employee {
     EmployeeName: string;

@@ -10,7 +10,7 @@ import { Employee } from '../models/employee.model';
 export class EmployeeTableComponent implements OnInit {
 
   employees: Employee[] = [];
-  @Output() employeesUpdated = new EventEmitter<Employee[]>(); // Dodaj ovu liniju
+  @Output() employeesUpdated = new EventEmitter<Employee[]>();
   
   constructor(private employeeService: EmployeeService) {}
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Employee } from './models/employee.model'; // Promeni putanju prema mestu gde se model nalazi
+import { Employee } from './models/employee.model'; 
 
 
 @Component({
