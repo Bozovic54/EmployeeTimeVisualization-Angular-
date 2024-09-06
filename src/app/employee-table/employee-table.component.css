@@ -1,0 +1,39 @@
+.highlight{
+    background-color: red;
+}
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    font-size: larger;
+  }
+  
+  .table th,
+  .table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #eceeef;
+  }
+  
+  .table thead th{
+    vertical-align: bottom;
+    text-align: left; 
+  }
+  
+  .table tbody + tbody {
+    border-top: 2px solid #eceeef;
+  }
+  
+  .table .table {
+    background-color: #fff;
+  }
+  
+  .table-sm th,
+  .table-sm td {
+    padding: 0.3rem;
+  }
+  
+  .table-bordered {
+    border: 1px solid #eceeef;
+  }
+  

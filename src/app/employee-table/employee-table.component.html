@@ -1,0 +1,19 @@
+<h1>Report</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <p>Name</p>
+            </th>
+            <th>
+                <p>Hours</p>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of employees" [ngClass]="{'highlight': employee.TotalWorkedHours < 100}">
+            <td>{{ employee.EmployeeName }}</td>
+            <td>{{ employee.TotalWorkedHours.toFixed(0)}}</td>
+        </tr>
+    </tbody>
+</table>
